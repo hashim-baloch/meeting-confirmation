@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>meeting | confirm --force</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        font-family: "Courier New";
+        background: black;
+        color: #00ff00;
+        overflow: hidden;
+      }
+
+      a {
+        color: #fff;
+      }
+      button {
+        margin: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background: black;
+        color: #00ff00;
+        border: 1px solid #00ff00;
+      }
+      div {
+        position: relative;
+      }
+      button:hover {
+        background: #00ff00;
+        color: black;
+      }
+
+      .binary {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        overflow: hidden;
+        z-index: -1;
+      }
+
+      .binary span {
+        position: absolute;
+        color: #00c80082;
+        font-size: 14px;
+        animation: fall 1.5s linear infinite;
+        white-space: pre;
+      }
+      h1 {
+        margin: 0 0 20px 0;
+      }
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 24px;
+        }
+      }
+
+      @keyframes fall {
+        0% {
+          transform: translateY(-100%);
+        }
+        100% {
+          transform: translateY(100%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="binary" id="binaryContainer"></div>
+    <h1 id="typing-header"></h1>
+    <div>
+      <button id="no-button">Cancel</button>
+      <button
+        id="yes-button"
+        onclick="document.querySelector('p').style.display = 'block'"
+      >
+        Confirm
+      </button>
+    </div>
+    <p style="display: none">
+      Status: <strong>Confirmed</strong><br />
+      return:
+      <a
+        href="https://www.youtube.com/watch?v=xvFZjo5PgG0"
+        target="_blank"
+        rel="noopener noreferrer"
+        >magic</a
+      >
+    </p>
+
+    <script>
+      const noButton = document.getElementById("no-button");
+      const binary = document.getElementById("binaryContainer");
+      const text = "Meeting confirmation > Status: Pending...";
+
+      for (let i = 0; i < 150; i++) {
+        const span = document.createElement("span");
+        span.textContent = "0\n1\n".repeat(Math.floor(Math.random() * 4 + 2));
+        span.style.left = Math.random() * 100 + "vw";
+        span.style.animationDelay = Math.random() * 1 + "s";
+        span.style.animationDuration = 1.5 + "s";
+        binary.appendChild(span);
+      }
+
+      const moveButton = () => {
+        const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
+        const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
+        noButton.style.position = "fixed";
+        noButton.style.zIndex = 1000;
+        noButton.style.left = `${x}px`;
+        noButton.style.top = `${y}px`;
+      };
+
+      noButton.addEventListener("mouseover", moveButton);
+      noButton.addEventListener("mousedown", moveButton);
+      noButton.addEventListener("touchstart", moveButton);
+
+      const header = document.getElementById("typing-header");
+      let index = 0;
+
+      const typingInterval = setInterval(() => {
+        header.textContent += text[index];
+        index++;
+
+        if (index === text.length) {
+          clearInterval(typingInterval);
+        }
+      }, 100);
+    </script>
+  </body>
+</html>
