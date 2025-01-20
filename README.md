@@ -4,9 +4,9 @@ Another generic project that, totally unpredictably, confirms meetings! But wait
 
 ## Overview
 
-- A single, near-identical HTML page you can “conveniently” store in a data URL.
-- Sublime, state-of-the-art glitchy styling that runs binary gibberish in the background.
-- Absolutely impress your team by forcing them to chase a “Cancel” button that’s running away.
+- A single, highly compressed HTML page encoded within a QR code.
+- Utilizes advanced minification techniques to reduce HTML size.
+- Easily scan the QR code to access the compressed meeting confirmation page.
 
 ## Questionable Resources
 
@@ -14,16 +14,18 @@ Another generic project that, totally unpredictably, confirms meetings! But wait
 
 ## Why A QR Code?
 
-- Because everyone loves taking their phones out to scan something.
+- Because embedding the entire page in a QR code showcases innovative compression.
 - Because I like making questionable design decisions for fun.
 
 ## Usage
 
-1.Just scan the QR code.(optional) 2. Lose faith in humanity’s priorities.(necessary)
+- Just scan the QR code.(optional)
+- Lose faith in humanity’s priorities.(necessary)
 
 ![QR code](https://cloud-3nd2uydnw-hack-club-bot.vercel.app/0test.png)
 
 ## How It Works
 
-- The HTML runs an amusing script that drops random 0s and 1s.
+- The entire HTML content is minified and compressed into a QR code.
+- Scanning the QR code decompresses and renders the interactive meeting confirmation interface.
 - “Cancel” is a game of tag; “Confirm” leads you to a nostalgic internet destination.
